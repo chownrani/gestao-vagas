@@ -5,17 +5,21 @@ import java.util.UUID;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Candidate {
     
     private UUID id;
 
     private String name;
 
-    @Pattern(regexp = "^(?!\\s*$).+", message = "Username is required and cannot be only spaces")
+    @NotBlank
+    @Pattern(regexp = "\\S+", message = "Username cannot have any spaces")
     private String username;
 
     @Email(message = "Email should be valid")
