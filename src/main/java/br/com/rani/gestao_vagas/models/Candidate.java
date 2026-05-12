@@ -15,9 +15,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "tb_candidate")
 public class Candidate {
     
@@ -41,5 +43,5 @@ public class Candidate {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
+    
 }
