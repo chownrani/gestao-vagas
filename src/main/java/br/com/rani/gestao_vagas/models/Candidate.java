@@ -44,4 +44,9 @@ public class Candidate {
     @CreationTimestamp
     private LocalDateTime createdAt;
     
+    public String getUsername() {
+        return this.username;
+    }
+
 }
+
