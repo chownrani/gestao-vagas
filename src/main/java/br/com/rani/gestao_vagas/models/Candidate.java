@@ -6,8 +6,16 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString(exclude = "password")
 @Entity(name = "tb_candidate")
 public class Candidate extends AbstractEntity {
 
