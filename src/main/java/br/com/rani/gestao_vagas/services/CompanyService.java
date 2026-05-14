@@ -19,7 +19,7 @@ public class CompanyService {
                 company.getUsername(), 
                 company.getEmail(),
                 company.getCnpj())
-            .ifPresent((e) -> {
+            .ifPresent((entity) -> {
                 throw new CompanyAlreadyExistsException();
             });
             

@@ -16,7 +16,7 @@ public class CandidateService {
     public Candidate create(Candidate candidate) {
         repository
             .findByUsernameOrEmail(candidate.getUsername(), candidate.getEmail())
-            .ifPresent((user) -> {
+            .ifPresent((entity) -> {
                 throw new UserAlreadyExistsException();
             });
 
