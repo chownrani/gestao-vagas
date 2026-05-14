@@ -19,12 +19,13 @@ public class CandidateController {
     private CandidateService service;
 
     @PostMapping("/")
-    public ResponseEntity<Object> create(@Valid @RequestBody Candidate candidate) {
-        try {
-            var response = service.create(candidate);
-            return ResponseEntity.ok().body(response);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<Object> create(
+        @Valid @RequestBody Candidate candidate) {
+            try {
+                var response = service.create(candidate);
+                return ResponseEntity.ok().body(response);
+            } catch (Exception e) {
+                return ResponseEntity.badRequest().body(e.getMessage());
+            }
     }
 }
