@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.EqualsAndHashCode;
@@ -23,6 +24,10 @@ public class Company extends AbstractEntity {
     @Pattern(regexp = "\\S+", message = "Username cannot have any spaces")
     @Column(unique = true)
     private String username;
+
+    @Email(message = "Email should be valid")
+    @Column(unique = true)
+    private String email;
 
     @Length(min = 8, max = 64)
     private String password;
