@@ -2,21 +2,30 @@ package br.com.rani.gestao_vagas.models;
 
 import br.com.rani.gestao_vagas.models.enumerations.JobLevel;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumeratedValue;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Data;
+import jakarta.validation.constraints.NotBlank;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString
 @Entity(name = "tb_job")
 public class Job extends AbstractEntity {
     
-    @EnumeratedValue
+    @NotBlank(message = "Job level is required")
+    @Enumerated(EnumType.STRING)
     private JobLevel level;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
 }
