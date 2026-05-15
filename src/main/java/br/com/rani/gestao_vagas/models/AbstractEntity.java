@@ -45,7 +45,6 @@ public class AbstractEntity {
     @LastModifiedDate
     private LocalDateTime modificatedAt;
 
-    @Column(nullable = false)
     private Boolean active = true;
 
 }
